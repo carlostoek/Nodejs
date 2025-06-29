@@ -38,6 +38,7 @@ export class NotificationService {
 
   async sendLevelUpNotification(ctx: Context, newLevel: UserLevel): Promise<void> {
     const levelMessages = {
+      [UserLevel.NEWCOMER]: "✨ Bienvenido, explorador en ciernes...",
       [UserLevel.EXPLORER]: "🌟 *¡Felicidades!* Has ascendido a **Explorador**. Los misterios básicos se revelan ante ti...",
       [UserLevel.SEEKER]: "🔮 *¡Impresionante!* Ahora eres un **Buscador**. Lucien nota tu determinación...",
       [UserLevel.INITIATE]: "⚡ *¡Extraordinario!* Has alcanzado el nivel **Iniciado**. Diana comienza a susurrar tu nombre...",

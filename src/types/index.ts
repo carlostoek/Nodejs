@@ -42,7 +42,7 @@ export interface Mission {
 }
 
 export interface MissionRequirement {
-  type: 'reactions' | 'messages' | 'time_active' | 'lore_pieces' | 'referrals';
+  type: 'reactions' | 'messages' | 'time_active' | 'lore_pieces' | 'referrals' | 'points';
   target: number;
   current: number;
 }
