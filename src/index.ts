@@ -5,7 +5,6 @@ import { PrismaClient } from '@prisma/client';
 import Redis from 'ioredis';
 
 import { BotHandler } from './bot/BotHandler';
-import { GameService } from './services/GameService';
 import { UserService } from './services/UserService';
 import { MissionService } from './services/MissionService';
 import { LoreService } from './services/LoreService';
@@ -40,12 +39,12 @@ const botHandler = new BotHandler(bot, userService, missionService, loreService,
 app.use(express.json());
 
 // Health check
-app.get('/health', (req, res) => {
+app.get('/health', (req: express.Request, res: express.Response) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
 // Webhook endpoint
-app.post('/webhook', (req, res) => {
+app.post('/webhook', (req: express.Request, res: express.Response) => {
   bot.processUpdate(req.body);
   res.sendStatus(200);
 });
